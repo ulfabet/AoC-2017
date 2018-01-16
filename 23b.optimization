@@ -1,0 +1,60 @@
+set b 99 
+set c b
+jnz a 2
+ jnz 1 5
+  mul b 100
+  sub b -100000
+  set c b
+  sub c -17000
+set f 1
+set d 2
+set e 2
+set g d
+mul g e
+sub g b
+jnz g 2
+ set f 0
+sub e -1
+set g e
+sub g b
+jnz g -8
+sub d -1
+set g d
+sub g b
+jnz g -13
+jnz f 2
+ sub h -1
+set g b
+sub g c
+jnz g 2
+jnz 1 3
+sub b -17
+jnz 1 -23
+
+--
+
+    b = 99
+    c = b
+    if not a == 0:
+        b = 99 * 100 + 100000   -- 109900
+        c = b + 17000           -- 126900
+LABEL3:
+    f = 1
+    d = 2
+LABEL2:
+    e = 2
+LABEL1:
+    if d * e == b:
+        f = 0
+    e = e + 1
+    if e != b:
+        goto LABEL1
+    d = d + 1
+    if d != b:
+        goto LABEL2
+    if f == 0:
+        h = h + 1
+    if b == c:
+        EXIT
+    b = b + 17
+    goto LABEL3
